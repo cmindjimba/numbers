@@ -1,0 +1,112 @@
+/**
+ * Author: CLEMENT MINDJIMBA
+ *
+ */
+import java.util.Scanner;
+
+public class Question1Array 
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner keyboard = new Scanner(System.in);
+		
+		System.out.println("How many elements in your array ? ");
+		int elements = keyboard.nextInt();
+		
+		//Create new array.
+		int[] array = new int[elements];
+		
+		//Initialization loop.
+		for (int x = 0; x < array.length; x++)
+		{
+			array[x] = (int)elements;
+		}
+		
+		//Print loop, assigns numbers.
+		for (int x = 0; x < array.length; x++)
+		{
+			System.out.print("Enter number: ");
+			array[x] = keyboard.nextInt();
+		}
+		
+		printArray(array); //Print printArray method.
+		reversedArray(array); //Print reversedArray method.
+		printEven(array); //Print printEven array.
+		printOdd(array); //Print printOdd method.
+		
+		//Ask the user for a value to look for in the array.
+		System.out.print("\n\nEnter a value to look for: ");
+		int value = keyboard.nextInt();
+		
+		System.out.print("Found your value at index: " + search(value, array));
+	}
+	
+	/**
+	 * Print loop, display array.
+	 * @param array
+	 */
+	public static void printArray(int[] array)
+	{
+		System.out.println("\nYour array is: ");
+		for (int x = 0; x < array.length; x++)
+		{
+		System.out.print(array[x] + " ");
+		}
+	}
+	
+	/**
+	 * Print loop, display array reversed.
+	 * @param array
+	 */
+	public static void reversedArray(int[] array)
+	{
+		System.out.println("\n\nYour array reversed is: ");
+		for (int x = array.length - 1; x >= 0; x--)
+		{
+			System.out.print(array[x] + " ");
+		}
+	}
+	
+	/**
+	 * Print even numbers.
+	 * @param array
+	 */
+	public static void printEven(int[] array)
+	{
+		System.out.println("\n\nValues at even-numbered indexes:");
+		for (int x = 0; x < array.length; x += 2)
+		{
+			System.out.print(array[x] + " ");
+		}
+	}
+	
+	/**
+	 * Print odd numbers.
+	 * @param array
+	 */
+	public static void printOdd(int[] array)
+	{
+		System.out.println("\n\nValues at odd-numbered indexes:");
+		for (int x = 1; x < array.length; x += 2)
+		{
+			System.out.print(array[x] + " ");
+		}
+	}
+	
+	/**
+	 * Search for user's value and return it.
+	 * @param value
+	 * @param array
+	 * @return value.
+	 */
+	public static int search(int value, int[] array)
+	{
+		for (int x = 0; x < array.length; x++)
+		{
+			if (value == array[x])
+				return x;
+		}
+		return -1;
+	}
+}
